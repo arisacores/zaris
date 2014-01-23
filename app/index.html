@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="myApp" ng-controller="ProcedimentosCtrl">
+<html lang="en" ng-app="myApp" ng-controller="PhoneListCtrl">
 <head>
   <meta charset="utf-8">
   <title ng-bind-template="Procedimento: {{query}}">Procedimentos</title>
@@ -60,18 +60,6 @@
   </nav>
   
 
-<div>
-
-  <ul>
-    <li ng-repeat="proc in procedimentos | filter:query">
-      {{proc.ambito}}
-      <p>{{proc.situacao}}</p>
-    </li>
-  </ul>
-
-  <p>Nothing here {{'BRO' + '!'}}</p>
-
-</div>
 
 
   <ul class="menu">

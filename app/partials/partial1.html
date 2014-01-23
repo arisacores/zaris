@@ -1,1 +1,19 @@
 <p>This is the partial for view 1.</p>
+
+<div>
+
+  <select ng-model="orderProp">
+    <option value="name">Alphabetical</option>
+    <option value="age">Newest</option>
+  </select>
+
+  <ul class="phones">
+    <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+      {{phone.name}}
+      <p>{{phone.snippet}}</p>
+    </li>
+  </ul>
+
+  <p>Nothing here {{'BRO' + '!'}}</p>
+
+</div>
