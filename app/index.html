@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="myApp" ng-controller="ProcedimentosCtrl">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title ng-bind-template="Procedimento: {{query}}">Procedimentos</title>
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
@@ -17,14 +17,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">ZARIS</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="#/view1">Inbound</a></li>
+        <li><a href="#/view2">Outbound</a></li>
+        <li><a href="#/view3">Princípios Base</a></li>
+        <li><a href="#">Pedidos</a></li>
+        <li><a href="#">Team Leaders</a></li>
+        <li><a href="#">Glossário</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -38,35 +42,42 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Procurar" ng-model="query">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+      
+
+      <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-book"></span> © Melhoria Contínua 2013 &nbsp &nbsp &nbsp   </a></li>
+        </ul>
+      </nav>
+
+
     </div><!-- /.navbar-collapse -->
   </nav>
   
 
+<div>
 
-  <p>aint nobody got time fo that!</p>
+  <ul>
+    <li ng-repeat="proc in procedimentos | filter:query">
+      {{proc.ambito}}
+      <p>{{proc.situacao}}</p>
+    </li>
+  </ul>
+
+  <p>Nothing here {{'BRO' + '!'}}</p>
+
+</div>
+
 
   <ul class="menu">
     <li><a href="#/view1">view1</a></li>
     <li><a href="#/view2">view2</a></li>
+    <li><a href="#/view3">view3</a></li>
   </ul>
 
   <div ng-view></div>
