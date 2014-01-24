@@ -1,13 +1,22 @@
 <p>This is the partial for view 3.</p>
-<p>
 
-  <p>Número total de processos: </p>
+<div>
 
+  <select ng-model="orderProp">
+    <option value="name">Alphabetical</option>
+    <option value="age">Newest</option>
+  </select>
+  
+  <br><br>
 
+  <ul class="phones">
+ 	<li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+		<a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+		<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+		<p>{{phone.snippet}}</p>
+	</li>
+  </ul>
 
 </div>
-</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+
+
